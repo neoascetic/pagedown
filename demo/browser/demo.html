@@ -68,7 +68,7 @@ It also includes a help button.
                 
                 var help = function () { alert("Do you need help?"); }
                 
-                var editor2 = new Markdown.Editor(converter2, "-second", { handler: help });
+                var editor2 = new Markdown.Editor(converter2, null, "-second", { handler: help });
                 
                 editor2.run();
             })();
