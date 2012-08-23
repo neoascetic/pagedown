@@ -1390,7 +1390,6 @@
             var highlightYShift = "-40px";
 
             var buttonRow = document.createElement("ul");
-            buttonRow.id = "wmd-button-row" + postfix;
             buttonRow.className = 'wmd-button-row';
             buttonRow = buttonBar.appendChild(buttonRow);
             var xPosition = 0;
@@ -1400,7 +1399,6 @@
                 button.style.left = xPosition + "px";
                 xPosition += 25;
                 var buttonImage = document.createElement("span");
-                button.id = id + postfix;
                 button.appendChild(buttonImage);
                 button.title = title;
                 button.XShift = XShift;
@@ -1413,7 +1411,6 @@
             var makeSpacer = function (num) {
                 var spacer = document.createElement("li");
                 spacer.className = "wmd-spacer wmd-spacer" + num;
-                spacer.id = "wmd-spacer" + num + postfix;
                 buttonRow.appendChild(spacer);
                 xPosition += 25;
             }
@@ -1454,7 +1451,6 @@
                 var helpButtonImage = document.createElement("span");
                 helpButton.appendChild(helpButtonImage);
                 helpButton.className = "wmd-button wmd-help-button";
-                helpButton.id = "wmd-help-button" + postfix;
                 helpButton.XShift = "-240px";
                 helpButton.isHelp = true;
                 helpButton.style.right = "0px";
