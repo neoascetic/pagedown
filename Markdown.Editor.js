@@ -49,15 +49,13 @@
     // - getConverter() returns the markdown converter object that was passed to the constructor
     // - run() actually starts the editor; should be called after all necessary plugins are registered. Calling this more than once is a no-op.
     // - refreshPreview() forces the preview to be updated. This method is only available after run() was called.
-    Markdown.Editor = function (markdownConverter, selectors, idPostfix, help) {
-
-        idPostfix = idPostfix || "";
+    Markdown.Editor = function (markdownConverter, selectors, help) {
 
         selectors = selectors || {};
         this.selectors = {
-            buttonBar: selectors.buttonBar || "wmd-button-bar" + idPostfix,
-            preview: selectors.preview || "wmd-preview" + idPostfix,
-            input: selectors.input || "wmd-input" + idPostfix
+            buttonBar: selectors.buttonBar || "wmd-button-bar",
+            preview: selectors.preview || "wmd-preview",
+            input: selectors.input || "wmd-input"
         };
 
         var hooks = this.hooks = new Markdown.HookCollection();
@@ -95,7 +93,7 @@
                 }
             }
 
-            uiManager = new UIManager(idPostfix, panels, undoManager, previewManager, commandManager, help);
+            uiManager = new UIManager(panels, undoManager, previewManager, commandManager, help);
             uiManager.setUndoRedoButtonStates();
 
             var forceRefresh = that.refreshPreview = function () { previewManager.refresh(true); };
@@ -1168,7 +1166,7 @@
         }, 0);
     };
 
-    function UIManager(postfix, panels, undoManager, previewManager, commandManager, helpOptions) {
+    function UIManager(panels, undoManager, previewManager, commandManager, helpOptions) {
 
         var inputBox = panels.input,
             buttons = {}; // buttons.undo, buttons.link, etc. The actual DOM elements.

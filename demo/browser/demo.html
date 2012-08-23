@@ -45,15 +45,8 @@ http://google.com
 http://stackoverflow.com
 
 It also includes a help button.
-</textarea>
-        </div>
-        <div id="wmd-preview-second" class="wmd-panel wmd-preview"></div>
 
-        <div class="wmd-panel">
-            <div id="foo-buttons"></div>
-            <textarea class="wmd-input" id="bar-input">
-This is a clone of [pagedown][], [markdown][] editor used on [SO][] with live
-preview, one from lot of others. This fork adds support for custom selectors:
+You can use custom selectors with this editor:
 
     var editor = new Markdown.Editor(
         converter,
@@ -64,15 +57,9 @@ preview, one from lot of others. This fork adds support for custom selectors:
         }
     );
 
-
-
-[pagedown]: http://pagedown.googlecode.com/
-[markdown]: http://en.wikipedia.org/wiki/Markdown
-[SO]: http://stackoverflow.com
 </textarea>
         </div>
-        <div id="baz-preview" class="wmd-panel wmd-preview"></div>
-
+        <div id="wmd-preview-second" class="wmd-panel wmd-preview"></div>
 
         <script type="text/javascript">
             (function () {
@@ -92,17 +79,13 @@ preview, one from lot of others. This fork adds support for custom selectors:
 
                 var help = function () { alert("Do you need help?"); }
 
-                var editor2 = new Markdown.Editor(converter2, null, "-second", { handler: help });
+                var editor2 = new Markdown.Editor(converter2, {
+                    buttonBar: 'wmd-button-bar-second',
+                    preview: 'wmd-preview-second',
+                    input: 'wmd-input-second'
+                }, { handler: help });
 
                 editor2.run();
-
-                var converter3 = new Markdown.Converter();
-                var editor3 = new Markdown.Editor(converter3, {
-                    buttonBar: 'foo-buttons',
-                    input: 'bar-input',
-                    preview: 'baz-preview'
-                });
-                editor3.run();
             })();
         </script>
     </body>
