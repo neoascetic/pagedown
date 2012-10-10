@@ -1223,13 +1223,12 @@ else
             /gi, _DoAutoLinks_callback());
             */
 
-            /* disabling email autolinking, since we don't do that on the server, either
             text = text.replace(/<(?:mailto:)?([-.\w]+\@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi,
                 function(wholeMatch,m1) {
-                    return _EncodeEmailAddress( _UnescapeSpecialChars(m1) );
+                    email = _UnescapeSpecialChars(m1);
+                    return '<a href="mailto:'+email+'">'+email+'</a>';
                 }
             );
-            */
             return text;
         }
 

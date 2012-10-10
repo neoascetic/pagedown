@@ -1,5 +1,6 @@
 This is a clone of [pagedown][], [markdown][] editor used on [SO][] with live
-preview, one from lot of others. This fork adds support for custom selectors:
+preview, one from lot of others. This fork adds support for emails autolinking
+and custom selectors:
 
     var editor = new Markdown.Editor(
         converter,
